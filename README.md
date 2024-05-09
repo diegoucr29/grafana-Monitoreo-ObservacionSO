@@ -174,7 +174,16 @@ nano sample.ini
 
 Prometheus,node_exporter,black_exporter,pushgateway,grafana.
 
+<details>
 
+  <summary>Click me</summary>
+
+  | Header 1 | Header 2 |
+  | -------- | -------- |
+  | Row 1    | Row 1    |
+  | Row 2    | Row 2    |
+  
+</details>
 
 5-Configuración de dashboards
 
