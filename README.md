@@ -5,6 +5,7 @@ Este proyecto explica la instalación, configuracion y explotacion de las herram
 ### Datos tecnicos
 
 SO: Oracle Linux 5.4.17-2136.329.3.1.el8uek.x86_64 (OracleLinux-R8-U5-x86_64) https://yum.oracle.com/oracle-linux-isos.html
+
 Paquetes de SO: telnet,curl
 VirtualBox: V7.0
 Memoria RAM 8gb
