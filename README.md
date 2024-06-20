@@ -85,7 +85,7 @@ Node_exporter,Pushgateway junto con los batch jobs y black_exporter envian las m
 4-Activación de exporters, prometheus, grafana <br>
 5-Configuración de dashboards <br>
 
-#### 1-Archivos y permisos
+####1-Archivos y permisos
 
 En el directorio donde se guardan los archivos y programas de monitoreo, modificar los permisos de usuario y descargar los programas. Descomprimir los archivos tar.
 En este caso se uso el directorio /home/oracle/grafana pero se puede crear un filesystem en la / del SO durante la instalación de linux
@@ -320,37 +320,30 @@ nano sample.ini
 ![](images/ArchivoSampleGrafana.png)
 
 
-####4-Activación de exporters, prometheus, grafana
+#### 4-Activación de exporters, prometheus, grafana
 
 <details>
 
   <summary>📑 Explicación de comandos y parametros (Click)</summary>
 
-Prometheus <br>
+| Prometheus |
+| ------------- |
+| --web.listen-address - Indica la ip:port donde levanta el programa, permite acceder a la plataforma de prometheus mediante el siguiente link 192.168.100.2:9090/metrics |
+| --web.listen-address - Indica la ip:port donde levanta el programa, permite acceder a la plataforma de prometheus mediante el siguiente link 192.168.100.2:9090/metrics |
+| --web.enable-remote-write-receiver - Permite recibir metricas externas que se pueden configurar con batcn jobs o scripts. Mediante pushgateway enviamos metricas custom a prometheus que son almacenadas en el tsdb.| 
 
---web.listen-address <br>
-Indica la ip:port donde levanta el programa, permite acceder a la plataforma de prometheus mediante el siguiente link 192.168.100.2:9090/metrics <br>
 
---config.file <br>
-El archivo con la configuracion de que exporters tiene que ver, esto se le conoce como tagerts <br>
+| Node_exporter |
+| ------------- |
+|--web.listen-address=192.168.100.2:9100 - Indica la ip:port donde levanta el programa, permite acceder a las metricas que genera node_exporter mediante el siguiente link 192.168.100.2:9100/metrics|
 
---web.enable-remote-write-receiver <br>
-Permite recibir metricas externas que se pueden configurar con batcn jobs o scripts. Mediante pushgateway enviamos metricas custom a prometheus que son almacenadas en el tsdb. <br>
+| Black_exporter |
+| ------------- |
+| --config.file=blackbox.yml - Reglas utilizadas para el analisis y extraccion de metricas de http del endpoint indicado en el prometheus.yml |
 
-Node_exporter<br>
-
---web.listen-address=192.168.100.2:9100 <br>
-Indica la ip:port donde levanta el programa, permite acceder a las metricas que genera node_exporter mediante el siguiente link 192.168.100.2:9100/metrics
-
-Black_exporter <br>
-
---config.file=blackbox.yml <br> 
-Reglas utilizadas para el analisis y extraccion de metricas de http del endpoint indicado en el prometheus.yml 
-
-Pushgateway <br>
-
---web.listen-address=192.168.100.2:9091 <br>
-Indica la ip:port donde levanta el programa, permite acceder a las metricas que genera node_exporter mediante el siguiente link 192.168.100.2:9091/metrics
+| Pushgateway |
+| ------------- |
+| --web.listen-address=192.168.100.2:9091 - Indica la ip:port donde levanta el programa, permite acceder a las metricas que genera node_exporter mediante el siguiente link 192.168.100.2:9091/metrics|
 
 Cada programa trae parametros propios para configurar, si desea ver la documentacion, aplica el siguiente comando en la terminal de SO Linux.
 
@@ -432,7 +425,7 @@ El resultado seria en siguiente.
 
 ![](images/PushgatewayMetrics.png)
 
-####5-Configuración de dashboards
+#### 5-Configuración de dashboards
 
 Ingresar a grafana, 192.168.100.2:3000
 exportar los dashboard
@@ -442,33 +435,3 @@ conectar una base de datos (mongodb sql) AventureWorks2017
 
 IMAGEN
 ![](https://pandao.github.io/editor.md/images/ArchivoSampleGrafana.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Anexo
-
-Proyecto blackbox_exporter
-https://github.com/prometheus/blackbox_exporter?tab=readme-ov-file
-
-Fuente Black exporter
-https://github.com/prometheus/blackbox_exporter/releases
-
-Ejemplo de pasos de configuracion step by step
-
-`<link english>` : <https://www.youtube.com/watch?v=HbaiglWbhR0>
-`<link spanish>` : <https://www.youtube.com/watch?v=yW0t029OIEw>
