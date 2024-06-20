@@ -20,7 +20,7 @@ Esté proyecto explica la instalación, configuración y explotación de las her
 Los puertos que deben habilitarse en la firewall del SO corresponden a los siguientes.
 
 | Programa o servicio | Puerto |
-|---------------|-----|-----|
+|---------------|-----|
 | grafana |  3000 | 
 | prometheus | 9090 |
 | node_exporter | 9100 |
